@@ -1,30 +1,13 @@
 import React from "react";
 import { useMemo } from "react";
 import { useTable } from "react-table";
-import styled from "styled-components";
-
-const StyledTable = styled.table`
-  border: none;
-  margin-top: 30px;
-  width: 100%;
-`;
-
-const StyledHeaderRow = styled.tr`
-  background: #aad9bb;
-`;
-const StyledHead = styled.th`
-  padding: 15px;
-  border: 1px solid black;
-`;
-
-const StyledBodyRow = styled.tr`
-  background: #d5f0c1;
-`;
-
-const StyledCell = styled.td`
-  border: 1px solid black;
-  padding: 5px;
-`;
+import {
+  StyledTable,
+  StyledHeaderRow,
+  StyledHead,
+  StyledBodyRow,
+  StyledCell,
+} from "./ProbabilityTable.styled";
 
 const ProbabilityTable = ({ data, prob }) => {
   const {
@@ -115,7 +98,6 @@ const ProbabilityTable = ({ data, prob }) => {
       row.original.Age === "Child"
         ? probabilityNotSToChild
         : probabilityNotSToAdult;
-
     if (row.original.Class === "First") {
       probabilityNotSToClass = probabilityNotSToFirst;
     } else if (row.original.Class === "Second") {
