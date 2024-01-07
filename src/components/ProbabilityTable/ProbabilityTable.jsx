@@ -1,6 +1,30 @@
 import React from "react";
 import { useMemo } from "react";
 import { useTable } from "react-table";
+import styled from "styled-components";
+
+const StyledTable = styled.table`
+  border: none;
+  margin-top: 30px;
+  width: 100%;
+`;
+
+const StyledHeaderRow = styled.tr`
+  background: #aad9bb;
+`;
+const StyledHead = styled.th`
+  padding: 15px;
+  border: 1px solid black;
+`;
+
+const StyledBodyRow = styled.tr`
+  background: #d5f0c1;
+`;
+
+const StyledCell = styled.td`
+  border: 1px solid black;
+  padding: 5px;
+`;
 
 const ProbabilityTable = ({ data, prob }) => {
   const {
@@ -49,27 +73,11 @@ const ProbabilityTable = ({ data, prob }) => {
         accessor: "ProbabilityNotSToClass",
       },
       {
-        Header: "P(X|C1)",
-        accessor: "ProbabilityNotSToMultiply",
-      },
-      {
-        Header: "P(X|C2)",
-        accessor: "ProbabilitySToMultiply",
-      },
-      {
-        Header: "P(X|C1)P(C1)",
-        accessor: "ProbabilitySToAll",
-      },
-      {
-        Header: "P(X|C2)P(C2)",
-        accessor: "ProbabilityNotSToAll",
-      },
-      {
-        Header: "Нормалізація ймовірності вижити",
+        Header: "Normalization of survival probability",
         accessor: "ProbabilityS",
       },
       {
-        Header: "Нормалізація ймовірності не вижити",
+        Header: "Normalization of the probability of not surviving",
         accessor: "ProbabilityNotS",
       },
     ],
@@ -122,23 +130,16 @@ const ProbabilityTable = ({ data, prob }) => {
   };
 
   return (
-    <table {...getTableProps()} style={{ border: "1px solid black" }}>
+    <StyledTable {...getTableProps()}>
       <thead>
         {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
+          <StyledHeaderRow {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
-              <th
-                {...column.getHeaderProps()}
-                style={{
-                  borderBottom: "1px solid black",
-                  background: "aliceblue",
-                  padding: "8px",
-                }}
-              >
+              <StyledHead {...column.getHeaderProps()}>
                 {column.render("Header")}
-              </th>
+              </StyledHead>
             ))}
-          </tr>
+          </StyledHeaderRow>
         ))}
       </thead>
       <tbody {...getTableBodyProps()} style={{ background: "lightgray" }}>
@@ -169,44 +170,33 @@ const ProbabilityTable = ({ data, prob }) => {
             (probabilitySMultiAll + probabilityNotSMultiAll);
 
           return (
-            <tr {...row.getRowProps()}>
+            <StyledBodyRow {...row.getRowProps()}>
               {row.cells.map((cell, index) => (
-                <td
-                  {...cell.getCellProps()}
-                  style={{ borderBottom: "1px solid black", padding: "5px" }}
-                >
-                  {index === columns.length - 5
-                    ? probabilityNotSToMultiply.toFixed(6)
-                    : index === columns.length - 6
-                    ? probabilitySToMultiply.toFixed(6)
-                    : index === columns.length - 4
-                    ? probabilitySMultiAll.toFixed(6)
-                    : index === columns.length - 3
-                    ? probabilityNotSMultiAll.toFixed(6)
-                    : index === columns.length - 1
+                <StyledCell {...cell.getCellProps()}>
+                  {index === columns.length - 1
                     ? normalizeNotS.toFixed(6)
                     : index === columns.length - 2
                     ? normalizeS.toFixed(6)
-                    : index === columns.length - 9
+                    : index === columns.length - 5
                     ? probabilityNotSToSex
-                    : index === columns.length - 8
+                    : index === columns.length - 4
                     ? probabilityNotSToAge
-                    : index === columns.length - 7
+                    : index === columns.length - 3
                     ? probabilityNotSToClass
-                    : index === columns.length - 12
+                    : index === columns.length - 8
                     ? probabilitySToSex
-                    : index === columns.length - 11
+                    : index === columns.length - 7
                     ? probabilitySToAge
-                    : index === columns.length - 10
+                    : index === columns.length - 6
                     ? probabilitySToClass
                     : cell.render("Cell")}
-                </td>
+                </StyledCell>
               ))}
-            </tr>
+            </StyledBodyRow>
           );
         })}
       </tbody>
-    </table>
+    </StyledTable>
   );
 };
 

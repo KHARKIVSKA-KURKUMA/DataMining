@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 /* ---------------------------------- reset --------------------------------- */
   body {
-  font-family: 'Inter', sans-serif;
+    font-family: "Manrope", sans-serif;
   margin: 0;
 }
 
@@ -43,5 +43,4 @@ img {
   height: auto;
 }
 
-  
 `;

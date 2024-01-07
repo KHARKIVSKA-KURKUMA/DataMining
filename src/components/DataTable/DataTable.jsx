@@ -1,6 +1,24 @@
 import { useState, useEffect } from "react";
 import titanic from "../../data/titanic.json";
-import ProbabilityTable from "./ProbabilityTable";
+import ProbabilityTable from "../ProbabilityTable/ProbabilityTable";
+import styled from "styled-components";
+
+const StyledTable = styled.table`
+  width: 100%;
+  border: none;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  th,
+  td {
+    font-family: "Manrope", sans-serif;
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+  }
+  td:first-of-type {
+    font-weight: 700;
+  }
+`;
 
 const DataTable = () => {
   const [totals, setTotals] = useState({
@@ -202,7 +220,7 @@ const DataTable = () => {
 
   return (
     <div>
-      <table style={{ width: "100%" }} border="1">
+      <StyledTable>
         <thead>
           <tr>
             <th>Категорія</th>
@@ -286,7 +304,7 @@ const DataTable = () => {
             <td>{totals.probabilityNotSToCrew}</td>
           </tr>
         </tbody>
-      </table>
+      </StyledTable>
       <ProbabilityTable
         data={titanic}
         prob={{

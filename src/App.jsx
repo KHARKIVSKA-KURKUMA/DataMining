@@ -3,10 +3,10 @@ import { GlobalStyle } from "./GlobalStyles";
 import DataTable from "./components/DataTable/DataTable";
 
 const Container = styled.div`
-  background-color: antiquewhite;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  background-color: #fbf9f1;
   align-items: center;
   padding-top: 20px;
 `;
