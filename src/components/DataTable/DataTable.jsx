@@ -206,22 +206,22 @@ const DataTable = () => {
       <StyledTable>
         <thead>
           <tr>
-            <th>Категорія</th>
-            <th>Всього пасажирів</th>
-            <th>Чоловіки</th>
-            <th>Жінки</th>
-            <th>1-й клас</th>
-            <th>2-й клас</th>
-            <th>3-й клас</th>
-            <th>Екіпаж</th>
-            <th>Вижили</th>
-            <th>Ймовірність вижити</th>
-            <th>Ймовірність не вижити</th>
+            <th>Category</th>
+            <th>Total passengers</th>
+            <th>Male</th>
+            <th>Female</th>
+            <th>1st class</th>
+            <th>2nd class</th>
+            <th>3rd class</th>
+            <th>Crew</th>
+            <th>Survived</th>
+            <th>Probability of survival</th>
+            <th>Probability of not surviving</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Дорослі</td>
+            <td>Adult</td>
             <td>{totals.totalAdultPassengers}</td>
             <td>{totals.males}</td>
             <td>{totals.females}</td>
@@ -234,7 +234,7 @@ const DataTable = () => {
             <td>{totals.probabilityNotSurvived}</td>
           </tr>
           <tr>
-            <td>Діти</td>
+            <td>Child</td>
             <td>{totals.totalChildPassengers}</td>
             <td>{totals.Cmales}</td>
             <td>{totals.Cfemales}</td>
@@ -247,7 +247,7 @@ const DataTable = () => {
             <td>{totals.CprobabilityNotSurvived}</td>
           </tr>
           <tr>
-            <td>Всього пасажирів</td>
+            <td>Total passengers</td>
             <td>{totals.totalPassengers}</td>
             <td>{totals.totalMale}</td>
             <td>{totals.totalFemale}</td>
@@ -257,7 +257,7 @@ const DataTable = () => {
             <td>{totals.totalC}</td>
           </tr>
           <tr>
-            <td>Вижили</td>
+            <td>Survived</td>
             <td>{totals.totalSurvive}</td>
             <td>{totals.totalSurvMale}</td>
             <td>{totals.totalSurvFem}</td>
@@ -267,7 +267,7 @@ const DataTable = () => {
             <td>{totals.totalSurvCrew}</td>
           </tr>
           <tr>
-            <td>Ймовірність вижити</td>
+            <td>Probability of survival</td>
             <td>{totals.probabilitySToAll}</td>
             <td>{totals.probabilitySToM}</td>
             <td>{totals.probabilitySToF}</td>
@@ -277,7 +277,7 @@ const DataTable = () => {
             <td>{totals.probabilitySToCrew}</td>
           </tr>
           <tr>
-            <td>Ймовірність не вижити</td>
+            <td>Probability of not surviving</td>
             <td>{totals.probabilityNotSToAll}</td>
             <td>{totals.probabilityNotSToM}</td>
             <td>{totals.probabilityNotSToF}</td>
